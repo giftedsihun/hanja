@@ -855,10 +855,12 @@ for line in lines:
         current_category = "고등학교용"
         continue
     
-    if re.match(r'^[ㄱ-ㅎ가-힣]$', line):
-        continue
-
+    # 한글 자음/모음으로만 이루어진 줄은 건너뛰지 않도록 수정
+    # 대신, 한자 데이터 패턴이 없는 줄은 건너뛰도록 합니다.
     matches = re.findall(r'(\w)\s*\(([^)]+?)\s+?(\S+?)\)', line)
+
+    if not matches:
+        continue # 한자 데이터 패턴이 없는 줄은 건너뜀
 
     for match in matches:
         hanja, meaning, sound = match
