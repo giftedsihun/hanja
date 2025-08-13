@@ -69,7 +69,7 @@ else:
             
             st.markdown(f"<div style=\'text-align: center; font-size: 120px; margin: 20px;\'>{current_hanja["hanja"]}</div>", unsafe_allow_html=True)
             
-            with st.form(key=\'hanja_quiz_form\'):
+            with st.form(key='hanja_quiz_form\'):
                 col1, col2 = st.columns(2)
                 with col1:
                     meaning_input = st.text_input("뜻을 입력하세요:")
